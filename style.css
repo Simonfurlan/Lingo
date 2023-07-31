@@ -71,6 +71,7 @@ body, html {
     background: transparent;
     color: white;
     font-weight: bolder;
+    font-size: x-large;
 }
 
 #optionPicker {
