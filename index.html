@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Lingua</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+
+    <p style="font-family: myBold;font-size: -webkit-xxx-large;margin-bottom: 10px;">Lingua</p>
+    
+    <select id="optionPicker">
+    <option value="presente">Presente</option>
+    <option value="imperfetto">Imprefetto</option>
+    <option value="passatoProssimo">Passato P.</option>
+    <option value="futuroSemplice">Futuro S.</option>
+    <option value="futuroAnteriore">Futuro A.</option>
+    <option value="condizionalePresente">Con. Pres.</option>
+    <option value="condizionalePassato">Con Pass.</option>
+    </select>
+
+    <div id = "solution" onclick="showMe()">
+        <button id = "btnBack" onclick="prev()">&lt;</button>
+        <p id = "textSolution" style="filter: blur(5px); text-align: -webkit-center; font-family: myNormal">Hallo, textextetxt</p>
+    </div>
+
+    <div id = "question" class="question" onclick="next()">
+        <p id = "textQuestion" style="text-align: -webkit-center; font-family: myNormal">Hallo, textextetxt</p>
+    </div>
+
+    <script src="data.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

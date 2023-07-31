@@ -1,0 +1,124 @@
+body, html {
+    height: 100vh;
+    margin: 5px;
+    background-color: white;
+    text-align: -webkit-center;
+}
+
+#question {
+    position: relative;
+    background-color: lightgrey;
+    height: 40%;
+    border-radius: 20px;
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@keyframes animationSmallBig {
+    0% {
+      transform: scale(1); /* Die ursprüngliche Größe */
+    }
+    50% {
+      transform: scale(0.975); /* Kleiner um 20% */
+    }
+    100% {
+      transform: scale(1); /* Zurück zur ursprünglichen Größe */
+    }
+  }
+  
+  /* Wenden Sie die Animation auf die div an */
+.animation-start {
+    animation: animationSmallBig 0.25s ease-in-out; /* Dauer der Animation 1 Sekunde */
+}
+
+
+@keyframes animationShow {
+    0% {
+        filter: blur(5px);
+      }
+    100% {
+        filter: blur(0px);
+    }
+}
+
+.show {
+    animation: animationShow 0.3s ease-in-out;
+}
+
+#solution {
+    position: relative;
+    background-color: lightgrey;
+    height: 40%;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 550px;
+}
+
+#btnBack {
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 20px;
+    padding-left: 10px;
+    padding-top: 7px;
+    border: none;
+    background: transparent;
+    color: white;
+    font-weight: bolder;
+    max-width: 550px;
+}
+
+#optionPicker {
+    position: absolute;
+    top: 30px;
+    right: 10px;
+    border: none;
+    background: transparent;
+}
+
+
+
+
+
+
+
+@font-face {
+    font-family: "myBold";
+    src: url(SF-Pro-Display-Bold.ttf) format("truetype");
+  }
+  
+  @font-face {
+    font-family: "myNormal";
+    src: url(SF-Pro-Display-Regular.ttf) format("truetype");
+  }
+  
+  @font-face {
+    font-family: "mySemiBold";
+    src: url(SF-Pro-Display-Semibold.ttf) format("truetype");
+  }
+  
+  p.bigFont {
+    font-family: "myBold", Verdana, Tahoma;
+    font-size: -webkit-xxx-large;
+    margin-bottom: 30px;
+    text-align: -webkit-left;
+  }
+  
+  * {
+    font-family: "myNormal", Verdana, Tahoma;
+    font-size: large;
+    margin: 0px;
+    text-align: -webkit-left;
+  }
+  
+  p.semiBigFont {
+    font-family: "mySemiBold", Verdana, Tahoma;
+    font-size: xx-large;
+    margin: 0px;
+    text-align: -webkit-left;
+    float: left;
+  }
