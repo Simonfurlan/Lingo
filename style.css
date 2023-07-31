@@ -8,7 +8,7 @@ body, html {
 #question {
     position: relative;
     background-color: lightgrey;
-    height: 350px;
+    height: 300px;
     border-radius: 20px;
     margin-top: 20px;
     display: flex;
@@ -51,7 +51,7 @@ body, html {
 #solution {
     position: relative;
     background-color: lightgrey;
-    height: 350px;
+    height: 300px;
     border-radius: 20px;
     display: flex;
     justify-content: center;
