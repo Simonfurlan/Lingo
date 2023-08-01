@@ -2,10 +2,19 @@ const optionPicker = document.getElementById("optionPicker");
 selectedData = presente;
 index = 0;
 pointer = 6;
+darkmode()
+
+function darkmode(){
+    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      document.body.style.backgroundColor = "black";
+      document.documentElement.style.backgroundColor = "black";
+      document.getElementById("titleText").style.color = "white";
+      document.getElementById("optionPicker").style.color = "white";
+    }
+}
 
 optionPicker.addEventListener("change", function() {
     const option = optionPicker.value;
-    console.log("option:" + option)
     switch(option) {
         case "condizionalePassato":
             selectedData = condizionalePassato;
@@ -36,13 +45,10 @@ optionPicker.addEventListener("change", function() {
             pointer = 6;
     }
 
-    console.log("pointer: " + pointer);
     //getting Index
     if(pointer != null){
         indexTmp = parseInt(localStorage.getItem(pointer));
-        console.log(indexTmp);
         if (!isNaN(indexTmp)){
-            console.log("run");
             index = indexTmp;
             document.getElementById("textNumber").innerHTML = ((index/2)+1) + "/" + getMax();
         }
