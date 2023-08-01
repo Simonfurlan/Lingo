@@ -81,6 +81,8 @@ body, html {
     border: none;
     background: transparent;
     text-align: right;
+    text-align-last: right;
+    direction: rtl;
 }
 
 @font-face {
