@@ -44,6 +44,7 @@ optionPicker.addEventListener("change", function() {
         if (!isNaN(indexTmp)){
             console.log("run");
             index = indexTmp;
+            document.getElementById("textNumber").innerHTML = ((index/2)+1) + "/" + getMax();
         }
         else{
             index = 0;
@@ -56,6 +57,11 @@ optionPicker.addEventListener("change", function() {
 });
 
 function next() {
+    if (index >= ((getMax()*2) - 2)){
+        animatePress();
+        return;
+    }
+
     animatePress();
     index+=2;
     const textSolution = document.getElementById("textSolution");
@@ -89,20 +95,22 @@ update()
 function update() {
     const textQuestion = document.getElementById("textQuestion");
     const textSolution = document.getElementById("textSolution");
-
+    
     indexTmp = parseInt(localStorage.getItem(pointer));
     if (indexTmp != NaN && indexTmp > index){
         index = indexTmp;
         textQuestion.innerHTML = selectedData[index];
         textSolution.innerHTML = selectedData[index + 1];
+        shown = 0;
+        document.getElementById("textNumber").innerHTML = ((index/2)+1) + "/" + getMax();
         return;
     }
 
-    console.log(index);
+    document.getElementById("textNumber").innerHTML = ((index/2)+1) + "/" + getMax();
 
     textQuestion.innerHTML = selectedData[index];
     textSolution.innerHTML = selectedData[index + 1];
-
+    shown = 0;
     if(pointer != null){
         localStorage.setItem(pointer, index);
     }
@@ -121,4 +129,13 @@ function showMe() {
         textSolution.style.filter =  "blur(0px)"; 
         shown = 1;
     });
+}
+
+function getMax() {
+    sum = 0;
+    for (let i = 0; selectedData[i] != undefined; i = i + 2) {
+        sum++;
+    }
+
+    return sum;
 }
