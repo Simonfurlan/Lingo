@@ -28,11 +28,27 @@ body, html {
     100% {
       transform: scale(1); /* Zurück zur ursprünglichen Größe */
     }
-  }
+}
   
   /* Wenden Sie die Animation auf die div an */
 .animation-start {
     animation: animationSmallBig 0.25s ease-in-out; /* Dauer der Animation 1 Sekunde */
+}
+
+@keyframes animationBigProgressBar {
+  0% {
+    width: 100px;
+  }
+  50% {
+    width: 104px;
+  }
+  100% {
+    width: 100px;
+  }
+}
+
+.animation-progress-start {
+  animation: animationBigProgressBar 0.7s ease-in-out; /* Dauer der Animation 1 Sekunde */
 }
 
 
@@ -120,4 +136,28 @@ body, html {
     margin: 0px;
     text-align: -webkit-left;
     float: left;
+  }
+
+
+  /* Progress Bar*/
+  #progress-container {
+    position: absolute;
+    width: 100px;
+    height: 10px;
+    bottom: 10px;
+    background: #aeaeb2;
+    border: white;
+    border-width: 5px;
+    border: solid;
+    border-radius: 50px;
+  }
+
+  #progress-bar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0%;
+    height: 100%;
+    border-radius: 50px;
+    background: white;
   }

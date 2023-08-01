@@ -90,7 +90,6 @@ function prev() {
     }
     index = index - 2;
     if(pointer != null){
-        console.log(index);
         localStorage.setItem(pointer, index);
     }
     update();
@@ -109,11 +108,14 @@ function update() {
         textSolution.innerHTML = selectedData[index + 1];
         shown = 0;
         document.getElementById("textNumber").innerHTML = ((index/2)+1) + "/" + getMax();
+        value = ((((index/2)+1)/getMax())*100)
+        var progressBar = document.getElementById("progress-bar");
+        progressBar.style.width = value + "%";
         return;
     }
 
     document.getElementById("textNumber").innerHTML = ((index/2)+1) + "/" + getMax();
-
+    setProgress((((index/2)+1)/getMax())*100)
     textQuestion.innerHTML = selectedData[index];
     textSolution.innerHTML = selectedData[index + 1];
     shown = 0;
@@ -144,4 +146,23 @@ function getMax() {
     }
 
     return sum;
+}
+
+
+// Progress Bar
+
+function setProgress(value) {
+    setTimeout(animateProgressBar, 50);
+    setTimeout(function() {
+        var progressBar = document.getElementById("progress-bar");
+        progressBar.style.width = value + "%";
+      }, 50);
+}
+
+function animateProgressBar() {
+    const div = document.querySelector(".progress-container");
+    div.classList.add("animation-progress-start");
+    div.addEventListener("animationend", function() {
+        div.classList.remove("animation-progress-start");
+    });
 }
