@@ -80,7 +80,7 @@ body, html {
     right: 10px;
     border: none;
     background: transparent;
-    text-align-last: right;
+    text-align: right;
 }
 
 @font-face {
