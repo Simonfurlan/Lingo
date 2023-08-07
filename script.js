@@ -2,6 +2,8 @@ const optionPicker = document.getElementById("optionPicker");
 selectedData = presente;
 index = 0;
 pointer = 6;
+version = "v1.3"
+
 darkmode()
 
 function darkmode(){
@@ -40,14 +42,26 @@ optionPicker.addEventListener("change", function() {
             selectedData = condizionalePresente;
             pointer = 5;
           break;
+        case "congiuntivoPresente":
+            selectedData = congiuntivoPresente;
+            pointer = 6;
+          break;
+        case "congiuntivoImperfetto":
+            selectedData = congiuntivoImperfetto;
+            pointer = 7;
+          break;
+        case "congiuntivoMix":
+            selectedData = congiuntivoMix;
+            pointer = 8;
+          break;
         default:
             selectedData = presente;
-            pointer = 6;
+            pointer = 9;
     }
 
     //getting Index
     if(pointer != null){
-        indexTmp = parseInt(localStorage.getItem(pointer));
+        indexTmp = parseInt(localStorage.getItem("Lingo" + pointer));
         if (!isNaN(indexTmp)){
             index = indexTmp;
             document.getElementById("textNumber").innerHTML = ((index/2)+1) + "/" + getMax();
@@ -90,7 +104,7 @@ function prev() {
     }
     index = index - 2;
     if(pointer != null){
-        localStorage.setItem(pointer, index);
+        localStorage.setItem("Lingo" + pointer, index);
     }
     update();
 }
@@ -101,7 +115,7 @@ function update() {
     const textQuestion = document.getElementById("textQuestion");
     const textSolution = document.getElementById("textSolution");
     
-    indexTmp = parseInt(localStorage.getItem(pointer));
+    indexTmp = parseInt(localStorage.getItem("Lingo" + pointer));
     if (indexTmp != NaN && indexTmp > index){
         index = indexTmp;
         textQuestion.innerHTML = selectedData[index];
@@ -120,7 +134,7 @@ function update() {
     textSolution.innerHTML = selectedData[index + 1];
     shown = 0;
     if(pointer != null){
-        localStorage.setItem(pointer, index);
+        localStorage.setItem("Lingo" + pointer, index);
     }
 }
 
@@ -165,4 +179,35 @@ function animateProgressBar() {
     div.addEventListener("animationend", function() {
         div.classList.remove("animation-progress-start");
     });
+}
+
+let versionTextRunning = 0;
+animateVersionText()
+
+
+function animateVersionText() {
+    if(versionTextRunning){
+        return;
+    }
+    versionTextRunning = 1;
+    setTimeout(showVersionText, 500);
+    setTimeout(hideVersionText, 2500);
+}
+
+function showVersionText(){
+    for (let i = 0; i < version.length; i++) {
+        setTimeout(textAdd, 80*i, version.slice(0, i+1));
+    }
+}
+
+function hideVersionText(){
+    for (let i = 0; i <= version.length; i++) {
+        setTimeout(textAdd, 80*i, version.slice(0, version.length - i));
+    }
+    setTimeout(versionTextRunning = 0, 2000);
+}
+
+function textAdd(str) {
+    text = document.getElementById("textVersion");
+    text.innerHTML = str;
 }

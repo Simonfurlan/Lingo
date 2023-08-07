@@ -8,8 +8,10 @@
 </head>
 <body>
 
-    <p id="titleText" style="font-family: myBold;font-size: -webkit-xxx-large;margin-bottom: 10px;">Lin<span style="font-family: myBold;font-size: -webkit-xxx-large;margin-bottom: 10px; color: #ff9d0a">go</span></p>
-    
+    <p id="titleText" onclick="animateVersionText()" style="font-family: myBold;font-size: -webkit-xxx-large;margin-bottom: 10px;">Lin<span style="font-family: myBold;font-size: -webkit-xxx-large;margin-bottom: 10px; color: #ff9d0a">go</span>
+        <span id="textVersion" style="margin-left: -5px; font-family: myBold; font-size: medium; margin-bottom: 10px; color: #c8c8c8; visibility: visible;"></span>
+    </p>
+
     <select id="optionPicker" style="font-size: large;">
     <option value="presente">Presente</option>
     <option value="imperfetto">Imprefetto</option>
@@ -18,11 +20,14 @@
     <option value="futuroAnteriore">Futuro Anteriore</option>
     <option value="condizionalePresente">Condizionale Presente</option>
     <option value="condizionalePassato">Condizionale Passato</option>
+    <option value="congiuntivoPresente">Congiuntivo Presente</option>
+    <option value="congiuntivoImperfetto">Congiuntivo Imperfetto</option>
+    <option value="congiuntivoMix">Congiuntivo Mix</option>
     </select>
 
     <div id = "solution" onclick="showMe()">
         <button id = "btnBack" onclick="prev()">&lt;</button>
-        <p id = "textSolution" style="padding: 5px;filter: blur(5px); text-align: -webkit-center; font-family: mySemiBold; font-size: large;">Error</p>
+        <p id = "textSolution" style="padding: 5px;filter: blur(5px); text-align: -webkit-center; font-family: mySemiBold; font-size: large;">Error, no data found!</p>
         <p id = "textNumber" style="position: absolute; bottom: 30px; font-size: smaller;">-/-</p>
         
         <div id="progress-container" class="progress-container">
@@ -32,7 +37,7 @@
     </div>
 
     <div id = "question" class="question" onclick="next()">
-        <p id = "textQuestion" style="padding: 5px;text-align: -webkit-center; font-family: mySemiBold; font-size: large;">Error</p>
+        <p id = "textQuestion" style="padding: 5px;text-align: -webkit-center; font-family: mySemiBold; font-size: large;">Error, no data found!</p>
     </div>
 
     <script src="data.js"></script>
