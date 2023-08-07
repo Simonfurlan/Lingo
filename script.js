@@ -2,7 +2,7 @@ const optionPicker = document.getElementById("optionPicker");
 selectedData = presente;
 index = 0;
 pointer = 6;
-version = "v1.3"
+version = "v1.4"
 
 darkmode()
 
@@ -182,8 +182,6 @@ function animateProgressBar() {
 }
 
 let versionTextRunning = 0;
-animateVersionText()
-
 
 function animateVersionText() {
     if(versionTextRunning){
@@ -211,3 +209,20 @@ function textAdd(str) {
     text = document.getElementById("textVersion");
     text.innerHTML = str;
 }
+
+function initialize() {
+    let height = screen.height;
+    let headHeight = 122;
+    divBodyBox = document.getElementById("bodyBox");
+    divSolution = document.getElementById("solution");
+    divQuestion = document.getElementById("question");
+    
+    newHeight = ((height - headHeight)*0.5) + "px";
+
+    divSolution.style.height = newHeight;
+    divQuestion.style.height = newHeight;
+
+    animateVersionText();
+}
+
+initialize()
