@@ -3,8 +3,16 @@ selectedData = presente;
 index = 0;
 pointer = 6;
 version = "v1.4"
+dev = "©simonFurlan"
 
 darkmode()
+
+document.body.addEventListener("click", scrollTop);
+
+function scrollTop() {
+    console.log("click")
+    window.scrollTo(0, 0);
+}
 
 function darkmode(){
     if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
@@ -205,12 +213,34 @@ function hideVersionText(){
     setTimeout(versionTextRunning = 0, 2000);
 }
 
+function showDevText(){
+    for (let i = 0; i < dev.length; i++) {
+        setTimeout(textAddDev, 80*i, dev.slice(0, i+1));
+    }
+}
+
+function hideDevText(){
+    for (let i = 0; i <= dev.length; i++) {
+        setTimeout(textAddDev, 80*i, dev.slice(0, dev.length - i));
+    }
+}
+
+function animateDevText() {
+    setTimeout(showDevText, 7000);
+}
+
 function textAdd(str) {
     text = document.getElementById("textVersion");
     text.innerHTML = str;
 }
 
+function textAddDev(str) {
+    text = document.getElementById("textDev");
+    text.innerHTML = str;
+}
+
 function initialize() {
+    /*
     let height = screen.height;
     let headHeight = 122;
     divBodyBox = document.getElementById("bodyBox");
@@ -221,7 +251,8 @@ function initialize() {
 
     divSolution.style.height = newHeight;
     divQuestion.style.height = newHeight;
-
+    */
+    animateDevText();
     animateVersionText();
 }
 
