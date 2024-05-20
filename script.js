@@ -2,8 +2,8 @@ const optionPicker = document.getElementById("optionPicker");
 selectedData = presente;
 index = 0;
 pointer = 6;
-version = "v1.4"
-dev = "©simonFurlan"
+version = "v1.5";
+dev = "©simonFurlan";
 
 darkmode()
 
@@ -62,9 +62,15 @@ optionPicker.addEventListener("change", function() {
             selectedData = congiuntivoMix;
             pointer = 8;
           break;
+
+        case "parole":
+            selectedData = parole;
+            pointer = 9;
+          break;
+
         default:
             selectedData = presente;
-            pointer = 9;
+            pointer = 10;
     }
 
     //getting Index
