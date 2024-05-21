@@ -14,7 +14,7 @@ const parole = [
   "zuweisen", "assegnare",
   "fördern", "promuovere",
   "vorsorgen", "provvedere",
-  "annehmen", "assumere",
+  "annehmen, einnehmen", "assumere",
   "erobern", "conquistare",
   "erwerben", "acquisire",
   "warnen", "avvertire",
