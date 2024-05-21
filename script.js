@@ -2,7 +2,7 @@ const optionPicker = document.getElementById("optionPicker");
 selectedData = presente;
 index = 0;
 pointer = 6;
-version = "v1.5";
+version = "v1.6";
 dev = "©simonFurlan";
 
 darkmode()
@@ -10,7 +10,6 @@ darkmode()
 document.body.addEventListener("click", scrollTop);
 
 function scrollTop() {
-    console.log("click")
     window.scrollTo(0, 0);
 }
 
@@ -23,8 +22,22 @@ function darkmode(){
     }
 }
 
+function loadLast() {
+    option = localStorage.getItem("LingoGroup");
+    switchGroup(option);
+    if(option.length > 1) {
+        optionPicker.value = option;
+    }
+}
+// Load last Group
+loadLast()
+
 optionPicker.addEventListener("change", function() {
     const option = optionPicker.value;
+    switchGroup(option);
+});
+
+function switchGroup(option) {
     switch(option) {
         case "condizionalePassato":
             selectedData = condizionalePassato;
@@ -75,6 +88,7 @@ optionPicker.addEventListener("change", function() {
 
     //getting Index
     if(pointer != null){
+        localStorage.setItem("LingoGroup", option);
         indexTmp = parseInt(localStorage.getItem("Lingo" + pointer));
         if (!isNaN(indexTmp)){
             index = indexTmp;
@@ -88,7 +102,7 @@ optionPicker.addEventListener("change", function() {
     const textSolution = document.getElementById("textSolution");
     textSolution.style.filter =  "blur(5px)"; 
     update();
-});
+}
 
 function next() {
     if (index >= ((getMax()*2) - 2)){
@@ -121,6 +135,19 @@ function prev() {
         localStorage.setItem("Lingo" + pointer, index);
     }
     update();
+    document.getElementById("textSolution").style.filter = "blur(5px)";
+}
+
+function toStart() {
+    if (index < 2){
+        return;
+    }
+    index = 0;
+    if(pointer != null){
+        localStorage.setItem("Lingo" + pointer, index);
+    }
+    update();
+    document.getElementById("textSolution").style.filter = "blur(5px)";
 }
 
 update()
@@ -154,10 +181,10 @@ function update() {
 
 shown = 0;
 function showMe() {
+    console.log("SHow");
     if (shown) {
         return;
     }
-
     const textSolution = document.getElementById("textSolution");
     textSolution.classList.add("show");
     textSolution.addEventListener("animationend", function() {

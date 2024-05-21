@@ -26,13 +26,16 @@
     <option value="parole">Parole</option>
     </select>
 
-    <div id = "solution" style="height: 39%;" onclick="showMe()">
+    <div id = "solution" style="height: 39%;">
             <button id = "btnBack" onclick="prev()">&lt;</button>
-            <p id = "textSolution" style="padding: 5px;filter: blur(5px); text-align: -webkit-center; font-family: mySemiBold; font-size: large;">Error, no data found!</p>
-            <p id = "textNumber" style="position: absolute; bottom: 30px; font-size: smaller;">-/-</p>
-            
-            <div id="progress-container" class="progress-container">
-                <div id="progress-bar" class="progress-bar"></div>
+            <button id="btnStart" onclick="toStart()">&lt;&lt;</button>
+            <div id = "solutionInnerBox" onclick="showMe()">
+                <p id = "textSolution" style="padding: 5px;filter: blur(5px); text-align: -webkit-center; font-family: mySemiBold; font-size: large;">Error, no data found!</p>
+                <p id = "textNumber" style="position: absolute; bottom: 30px; font-size: smaller;">-/-</p>
+                
+                <div id="progress-container" class="progress-container">
+                    <div id="progress-bar" class="progress-bar"></div>
+                </div>
             </div>
     </div>
 
