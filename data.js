@@ -8,7 +8,7 @@ const parole = [
   "genehmigen", "approvare",
   "respektieren", "rispettare",
   "entdecken", "scoprire",
-  "konsultieren", "consultare",
+  "konsultieren, um Rat fragen", "consultare",
   "verhaften", "arrestare",
   "anfechten", "contestare",
   "zuweisen", "assegnare",
