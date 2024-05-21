@@ -1,5 +1,6 @@
 const parole = [
-  "aufgeben", "abbandonare",
+  "verlassen, loslassen", "abbandonare",
+  "aufgeben", "rinunciare",
   "aktualisieren", "aggiornare",
   "etwas gewähren", "concedere",
   "anschnallen", "allacciare",
